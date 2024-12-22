@@ -10,41 +10,51 @@ A company has collected New York housing rental data from the Airbnb app during 
 
 <br><br>
 
-## Steps to Perform EDA
+---
 
-Below is the complete Python code to perform all the steps, including loading the dataset, conducting exploratory data analysis (EDA), and saving the processed dataset:
+## Step 1: Load the Dataset
+The dataset is loaded from a public URL.
 
-```python
-import pandas as pd
+- **Dataset URL:** `AB_NYC_2019.csv`
+- **Command used:** `pd.read_csv()`
+- **Assigned variable:** `df`
 
-# Step 1: Load the dataset
-URL = 'https://raw.githubusercontent.com/4GeeksAcademy/data-preprocessing-project-tutorial/main/AB_NYC_2019.csv'
-df = pd.read_csv(URL)
+---
 
-# Step 2: Perform a complete EDA
-# Dimensions of the dataset
-print("Dataset Dimensions:", df.shape)
+## Step 2: Data Exploration
+EDA is performed to understand the dataset's structure and content.
 
-# Preview the dataset
-print("First few rows of the dataset:")
-print(df.head())
+### 2.1. Dataset Dimensions
+- **Command:** `df.shape`
+- **Description:** Returns the number of rows and columns in the dataset.
 
-# Descriptive statistics
-print("Descriptive statistics:")
-print(df.describe())
+### 2.2. Initial Preview
+- **Command:** `df.head()`
+- **Description:** Displays the first few rows to provide an overview of the dataset.
 
-# Null value inspection
-print("Missing values per column:")
-print(df.isnull().sum())
+### 2.3. Descriptive Statistics
+- **Command:** `df.describe()`
+- **Description:** Generates summary statistics for numerical columns, including mean, standard deviation, and percentiles.
 
-# Analyzing distributions (example: room types)
-print("Distribution of room types:")
-print(df['room_type'].value_counts())
+### 2.4. Missing Values Inspection
+- **Command:** `df.isnull().sum()`
+- **Description:** Shows the count of missing values for each column.
 
-# Step 3: Save the processed dataset
-output_file = 'processed_dataset.csv'
-df.to_csv(output_file, index=False)
-print(f"Processed dataset saved to {output_file}")
+### 2.5. Data Distributions
+- **Example:** Distribution of Room Types
+- **Command:** `df['room_type'].value_counts()`
+- **Description:** Displays the frequency of each category in the `room_type` column.
 
+### 2.6. Data Visualization
+- **Example:** Matrix Correlation
+- **Command:** `sns.heatmap(data).corr()`
+- **Description:** Helps to identify correlation between categories.
+---
 
+## Step 3: Save the Processed Dataset
+After analysis, the processed dataset is saved to a CSV file:
 
+- **Output file:** `processed_dataset.csv`
+- **Command used:** `df.to_csv('processed_dataset.csv', index=False)`
+
+The processed file is ready for further analysis or modeling.
